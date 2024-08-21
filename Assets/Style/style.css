@@ -5,21 +5,21 @@
 @import 'footer.css';
 
 :root{
-    --fontTitle: 'Playfair', serif;
-    --fontText: 'Inter', sans-serif;
+    --fontSerif: 'Playfair Display', serif;
+    --fontSans-Serif: 'Inter', sans-serif;
 
-    --black-1: #F7F7F7;
-    --black-2: #EDEDED;
-    --black-3: #DEDEDE;
-    --black-4: #CCCCCC;
-    --black-5: #B3B3B3;
-    --black-6: #9C9C9C;
-    --black-7: #717171;
-    --black-8: #595959;
-    --black-9: #404040;
-    --black-10: #2E2E2E;
-    --black-11: #1A1A1A;
-    --black-12: #0E0E0E;
+    --grey1: #F7F7F7;
+    --grey2: #EDEDED;
+    --grey3: #DEDEDE;
+    --grey4: #CCCCCC;
+    --grey5: #B3B3B3;
+    --grey6: #9C9C9C;
+    --grey7: #717171;
+    --grey8: #595959;
+    --grey9: #404040;
+    --grey10: #2E2E2E;
+    --grey11: #1A1A1A;
+    --grey12: #0E0E0E;
 }
 
 *{
@@ -35,31 +35,69 @@ img{
     width: 100%;
 }
 
+a{
+    display: inline-block;
+}
+
+html{
+    overflow-x: hidden;
+}
+
 body{
     overflow-x: hidden;
+    min-height: 100vh;
     
-    background-color: var();
+    background-color: var(--grey12);
 }
 
 .bg-header, .bg-footer{
-    background-color: var();
+    background-color: var(--grey11);
 }
 
 .limit-width{
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .title{
-    font-family: var(--fontTitle);
+    font-family: var(--fontSerif);
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    line-height: 3.7rem;
+
+    color: var(--grey4);
+}
+
+.sub-title{
+    font-family: var(--fontSerif);
+    font-size: 2rem;
+    letter-spacing: 0.03rem;
+    line-height: 2.5rem;
+
+    color: var(--grey5);
+}
+
+.link{
+    font-family: var(--fontSerif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+
+    color: var(--grey3);
+    padding: 10px;
 }
 
 .text{
-    font-family: var(--fontText);
+    font-family: var(--fontSans-Serif);
+    font-size: 1.125rem;
+    letter-spacing: 0.01rem;
+    line-height: 1.5rem;
+
+    color: var(--grey6);
 }
-
-/* classes js */
-
 
 @media (min-width: 480px){
 
