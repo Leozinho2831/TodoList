@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import 'header.css';
+@import 'footer.css';
+
+:root{
+    --fontTitle: 'Playfair', serif;
+    --fontText: 'Inter', sans-serif;
+
+    --black-1: #F7F7F7;
+    --black-2: #EDEDED;
+    --black-3: #DEDEDE;
+    --black-4: #CCCCCC;
+    --black-5: #B3B3B3;
+    --black-6: #9C9C9C;
+    --black-7: #717171;
+    --black-8: #595959;
+    --black-9: #404040;
+    --black-10: #2E2E2E;
+    --black-11: #1A1A1A;
+    --black-12: #0E0E0E;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+img{
+    width: 100%;
+}
+
+body{
+    overflow-x: hidden;
+    
+    background-color: var();
+}
+
+.bg-header, .bg-footer{
+    background-color: var();
+}
+
+.limit-width{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.title{
+    font-family: var(--fontTitle);
+}
+
+.text{
+    font-family: var(--fontText);
+}
+
+/* classes js */
+
+
+@media (min-width: 480px){
+
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 1024px){
+
+}
