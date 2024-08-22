@@ -28,19 +28,31 @@
         </header>
     </div>
 
-    <main class="main">
+    <main class="main limit-width">
 
         <section class="main__list">
             <form class="list__add">
                 <div>
-                    <label for="task">O que deseja fazer</label>
-                    <input type="text" id="task">
+                    <label for="task" class="text">Evento desejado</label>
+                    <input type="text" id="task" class="inputs">
                 </div>
 
-                <label for="hourEvent">
-                    <img src="Assets/Images/Clock.svg" alt="Hora">
-                </label>
-                <input type="number" id="hourEvent">
+                <div>
+                    <!-- <img src="Assets/Images/Calendar.svg" alt="Data"> -->
+                    <label for="dayEvent" class="text">Data do evento</label>
+                    <input type="date" id="dayEvent" class="inputs">
+                </div>
+
+                <div>
+                    <!-- <img src="Assets/Images/Clock.svg" alt="Hora"> -->
+                    <label for="hourEvent" class="text">Horário do evento</label>
+                    <input type="number" id="hourEvent" class="inputs">
+                </div>
+
+                <div class="list__button">
+                    <button class="text">Criar</button>
+                </div>
+
             </form>
         </section>
 
