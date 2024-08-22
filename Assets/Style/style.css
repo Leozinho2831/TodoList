@@ -97,6 +97,14 @@ body{
     color: var(--grey5);
 }
 
+.task-text{
+    font-size: 1.5rem;
+    letter-spacing: 0.01rem;
+    line-height: 2rem;
+
+    color: var(--grey4);
+}
+
 .inputs{
     display: block;
     background-color: var(--grey3);
@@ -126,6 +134,11 @@ body{
         font-size: 1.5rem;
         line-height: 2rem;
     }
+
+    .task-text{
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
 }
 
 @media (min-width: 768px){
@@ -136,6 +149,11 @@ body{
     }
 
     .sub-title{
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+    }
+
+    .task-text{
         font-size: 2rem;
         line-height: 2.5rem;
     }
