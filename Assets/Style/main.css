@@ -21,6 +21,7 @@ input[type="date"] {
 
 .main{
     padding: 60px 40px;
+    position: relative;
 }
 
 .list__add img, .task img{
@@ -77,10 +78,43 @@ input[type="date"] {
     cursor: pointer;
 }
 
+.list__task{
+    overflow-y: auto;
+    max-width: 800px;
+    height: 800px;
+
+    margin: 40px auto 0 auto;
+}
+
 .task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+
     background-color: var(--grey11);
 }
 
+.task img{
+    width: 30px;
+    height: 30px;
+}
+
+.task__text{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+@media (min-width: 480px){
+
+    .task img{
+        width: 40px;
+        height: 40px;
+    }
+}
 
 @media (min-width: 768px){
 
@@ -91,6 +125,15 @@ input[type="date"] {
     .list__button{
         grid-column: 2 / 3;
     }
+
+    .task{
+        padding: 30px;
+    }
+
+    .task img{
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (min-width: 1024px){
@@ -98,5 +141,9 @@ input[type="date"] {
     .list__add{
         padding: 40px;
         gap: 40px;
+    }
+
+    .task{
+        padding: 40px;
     }
 }
