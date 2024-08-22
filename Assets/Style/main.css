@@ -1,0 +1,78 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-ms-clear {
+    display: none;
+}
+
+input[type="date"] {
+    -moz-appearance: textfield;
+}
+
+.main{
+    padding: 60px 40px;
+}
+
+.list__add img, .task img{
+    width: 40px;
+    height: 40px;
+}
+
+.list__add div label{
+    display: inline-block;
+    margin: 0 0 25px 0;
+}
+
+.list__add{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 30px;
+
+    padding: 30px;
+    background-color: var(--grey11);
+
+    box-shadow: 0 1px 2px var(--shadow);
+}
+
+.list__add div img{
+    margin: 0 0 5px 0;
+}
+
+.list__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list__button button{
+    width: 100%;
+    padding: 10px;
+
+    background-color: var(--grey3);
+    color: var(--grey8);
+    border: 2px solid var(--grey5);
+    border-radius: 5px;
+
+    margin: 20px 0 0 0;
+}
+
+@media (min-width: 768px){
+
+    .list__add{
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .list__button{
+        grid-column: 2 / 3;
+    }
+}
