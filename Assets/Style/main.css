@@ -4,7 +4,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -16,7 +16,7 @@ input[type="date"]::-ms-clear {
 }
 
 input[type="date"] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .main{
