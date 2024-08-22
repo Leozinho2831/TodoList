@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @import 'header.css';
+@import 'main.css';
 @import 'footer.css';
 
 :root{
@@ -18,6 +19,8 @@
     --grey10: #2E2E2E;
     --grey11: #1A1A1A;
     --grey12: #0E0E0E;
+
+    --shadow: rgba(0, 0, 0, 0.25)
 }
 
 *{
@@ -54,7 +57,7 @@ body{
 }
 
 .limit-width{
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -64,44 +67,73 @@ body{
     letter-spacing: 0.05rem;
     line-height: 3.7rem;
 
-    color: var(--grey4);
+    color: var(--grey3);
 }
 
 .sub-title{
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 0.03rem;
-    line-height: 2.5rem;
+    line-height: 2.2rem;
 
-    color: var(--grey5);
+    color: var(--grey4);
 }
 
 .link{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    line-height: 2.2rem;
+    line-height: 1.7rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
 
-    color: var(--grey3);
+    color: var(--grey2);
     padding: 10px;
 }
 
 .text{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     letter-spacing: 0.01rem;
-    line-height: 1.5rem;
+    line-height: 1.7rem;
 
-    color: var(--grey6);
+    color: var(--grey5);
+}
+
+.inputs{
+    display: block;
+    background-color: var(--grey3);
+    border: 2px solid var(--grey5);
+    border-radius: 5px;
+
+    width: 100%;
+    height: 35px;
+    padding: 10px 5px;
+
+    font-size: 1.25rem;
+    letter-spacing: 0.01rem;
+    line-height: 1.8rem;
 }
 
 @media (min-width: 480px){
 
+    .link{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .text{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
 }
 
 @media (min-width: 768px){
 
-}
+    .title{
+        font-size: 3.5rem;
+        line-height: 4.3rem;
+    }
 
-@media (min-width: 1024px){
-
+    .sub-title{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
 }
