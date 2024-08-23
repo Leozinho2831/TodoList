@@ -101,10 +101,6 @@ input[type="date"] {
     background-color: var(--grey11);
 }
 
-.task svg:first-of-type:hover{
-    fill: ;
-}
-
 .task__text{
     display: flex;
     align-items: center;
