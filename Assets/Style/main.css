@@ -24,7 +24,7 @@ input[type="date"] {
     position: relative;
 }
 
-.list__add img, .task img{
+.list__add img, .task svg{
     width: 30px;
     height: 30px;
 }
@@ -83,7 +83,12 @@ input[type="date"] {
     max-width: 800px;
     height: 800px;
 
-    margin: 40px auto 0 auto;
+    margin: 3rem auto 0 auto;
+}
+
+.list__task h2{
+    text-align: center;
+    margin: 0 0 1.5rem 0;
 }
 
 .task{
@@ -96,9 +101,8 @@ input[type="date"] {
     background-color: var(--grey11);
 }
 
-.task img{
-    width: 30px;
-    height: 30px;
+.task svg:first-of-type:hover{
+    fill: ;
 }
 
 .task__text{
@@ -110,7 +114,7 @@ input[type="date"] {
 
 @media (min-width: 480px){
 
-    .task img{
+    .task svg{
         width: 40px;
         height: 40px;
     }
@@ -130,7 +134,7 @@ input[type="date"] {
         padding: 30px;
     }
 
-    .task img{
+    .task svg{
         width: 50px;
         height: 50px;
     }
