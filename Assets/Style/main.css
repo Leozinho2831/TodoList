@@ -94,7 +94,7 @@
 }
 
 .task svg:first-of-type{
-    fill: var(--green3);
+    fill: var(--green2);
 }
 
 .task svg:last-of-type{
@@ -112,7 +112,7 @@
 /* classes javascript */
 
 .js .task.completeTask{
-    background-color: var(--green2);
+    background-color: var(--green1);
 }
 
 .js .completeTask p.task-text{
@@ -164,7 +164,7 @@
 
     .task svg:first-of-type:hover{
         transform: scale(1.05);
-        fill: var(--green3);
+        fill: var(--green2);
     }
     
     .task svg:last-of-type:hover{
