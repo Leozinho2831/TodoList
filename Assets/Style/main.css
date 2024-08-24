@@ -62,8 +62,11 @@
     border: 2px solid var(--grey8);
 }
 
+.task__date{
+    margin: 3rem 0;
+}
 
-.task__date h2{
+.task__date div h2{
     text-align: center;
     margin: 3rem 0;
 }
