@@ -20,7 +20,10 @@
     --grey11: #1A1A1A;
     --grey12: #0E0E0E;
 
-    --green: #0A9121;
+    --green1: #46E360;
+    --green2: #30CB4A;
+    --green3: #057818;
+    --green4: #00540E;
     
     --red: #BA182F;
 
@@ -48,6 +51,35 @@ button{
     font-family: var(--fontSerif);
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-ms-clear {
+    display: none;
+}
+
+input[type="date"] {
+    appearance: textfield;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="time"]::-ms-clear {
+    display: none;
+}
+
 html{
     overflow-x: hidden;
 }
@@ -70,10 +102,10 @@ body{
 }
 
 .title{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: 0.05rem;
-    line-height: 3.7rem;
+    line-height: 3.125rem;
 
     color: var(--grey3);
 }
@@ -144,11 +176,6 @@ body{
         line-height: 2rem;
     }
 
-    .text{
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
-
     .task-text{
         font-size: 1.8rem;
         line-height: 2.2rem;
@@ -170,5 +197,13 @@ body{
     .task-text{
         font-size: 2.2rem;
         line-height: 3rem;
+    }
+}
+
+@media (min-width: 1024px){
+
+    .text{
+        font-size: 1.6rem;
+        line-height: 2.2rem;
     }
 }
