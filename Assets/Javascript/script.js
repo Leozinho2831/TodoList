@@ -165,6 +165,12 @@ function initCreateTask(){
     }
 
     buttonCreateTask.addEventListener('click', createTask);
+    
+    document.addEventListener('keydown', (event) => {
+        if(event.key === 'Enter'){
+            createTask();
+        }
+    });
 }
 
 initCreateTask();
