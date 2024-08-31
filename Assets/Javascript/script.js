@@ -61,7 +61,7 @@ function initCreateTask(){
 
             let hour = '';
             if (inputHour.value) {
-                hour = `<p class="task-text">${inputHour.value}</p>`;
+                hour = `<p class="task-text js-textHour">${inputHour.value}</p>`;
             }
 
             let newTask = '';
@@ -107,19 +107,51 @@ function initCreateTask(){
                 containerSection.innerHTML += newTask;
             }
 
+            // organizando tasks por data
             const tasksContainers = document.querySelectorAll('.js-containerTasks');
-            const tasksArray = Array.from(tasksContainers);
+            let tasksArray = Array.from(tasksContainers);
 
-            tasksArray.sort((a, b) => {
-                const dateA = new Date(a.querySelector('.js-title').textContent.split('/').reverse().join('-'));
-                const dateB = new Date(b.querySelector('.js-title').textContent.split('/').reverse().join('-'));
+            if(tasksArray.length > 1){
+                tasksArray.sort((a, b) => {
+                    const dateA = new Date(a.querySelector('.js-title').textContent.split('/').reverse().join('-'));
+                    const dateB = new Date(b.querySelector('.js-title').textContent.split('/').reverse().join('-'));
+    
+                    return dateA - dateB;
+                });
+    
+                tasksArray.forEach(task => {
+                    containerSection.appendChild(task);
+                });
+            } 
 
-                return dateA - dateB;
-            });
+            // organizando tasks por horas
+            const tasksList = document.querySelectorAll('.js-listTask');
 
-            tasksArray.forEach(task => {
-                containerSection.appendChild(task);
-            });
+            if(inputHour.value){
+                tasksList.forEach((taskList) => {
+
+                    tasksArray = Array.from(taskList.children);
+    
+                    tasksArray.sort((a, b) => {
+                        const hourAElement = a.querySelector('.js-textHour');
+                        const hourBElement = b.querySelector('.js-textHour');
+                        
+                        const hourA = hourAElement ? hourAElement.textContent : '24:00';
+                        const hourB = hourBElement ? hourBElement.textContent : '24:00';
+    
+                        return hourA.localeCompare(hourB);
+                    });
+    
+                    tasksArray.forEach((task) => {
+                        taskList.appendChild(task);
+                    });
+                    
+                });
+            }
+
+            inputText.value = '';
+            inputDate.value = '';
+            if(inputHour.value) inputHour.value = '';
 
             localStorage.removeItem('tasks');
             saveTasks();
@@ -158,9 +190,14 @@ initCompleteTask();
 function initRemoveTask() {
     const iconRemover = document.querySelectorAll('.js-removeTask');
 
-    function deleteTask() {
-        const taskSection = document.querySelector('.js-taskSection');
+    function deleteTask(){
+        
+        if(this.parentElement.parentElement.children.length === 1){
+            this.parentElement.parentElement.parentElement.remove();
+        }
+
         this.parentElement.remove();
+
         saveTasks();
     }
 
@@ -171,14 +208,15 @@ function initRemoveTask() {
 
 initRemoveTask();
 
-function initStorage() {
+function initStorage(){
     function saveTasks(){
         const taskSection = document.querySelector('.js-taskSection');
         localStorage.setItem('tasks', taskSection.innerHTML);
     }
 
-    function loadTasks() {
+    function loadTasks(){
         const savedTasks = localStorage.getItem('tasks');
+
         if (savedTasks) {
             const taskSection = document.querySelector('.js-taskSection');
             taskSection.innerHTML = savedTasks;
