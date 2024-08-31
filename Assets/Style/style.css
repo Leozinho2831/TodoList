@@ -136,9 +136,12 @@ body{
 }
 
 .task-text{
-    font-size: 1.5rem;
+    max-width: 12ch;
+
+    font-size: 1.2rem;
+    text-align: center;
     letter-spacing: 0.01rem;
-    line-height: 2rem;
+    line-height: 1.7rem;
 
     color: var(--grey4);
 }
@@ -175,8 +178,8 @@ body{
     }
 
     .task-text{
-        font-size: 1.8rem;
-        line-height: 2.2rem;
+        font-size: 1.6rem;
+        line-height: 2.1rem;
     }
 }
 
@@ -193,6 +196,8 @@ body{
     }
 
     .task-text{
+        max-width: 20ch;
+
         font-size: 2.2rem;
         line-height: 3rem;
     }
@@ -203,5 +208,9 @@ body{
     .text{
         font-size: 1.6rem;
         line-height: 2.2rem;
+    }
+
+    .task-text{
+        max-width: 30ch;
     }
 }
