@@ -8,7 +8,8 @@
     height: 30px;
 }
 
-.list__add div p{
+.list__add div label{
+    display: block;
     margin: 0 0 25px 0;
 }
 
@@ -36,6 +37,16 @@
     position: absolute;
     right: 5px;
     bottom: 5px;
+}
+
+.input__checkbox{
+    font: inherit;
+    color: var(--grey9);
+    background-color: var(--grey3);
+    border: 2px solid var(--grey5);
+
+    width: 40px;
+    height: 40px;
 }
 
 .list__button{
@@ -73,10 +84,6 @@
 
 .list__task{
     overflow-y: auto;
-    max-width: 1000px;
-    max-height: 600px;
-
-    margin: 0 auto;
 }
 
 .task{
@@ -119,7 +126,6 @@
 }
 
 /* classes javascript */
-
 .js .task.completeTask{
     background-color: var(--green1);
 }
@@ -144,16 +150,20 @@
 @media (min-width: 768px){
 
     .list__add{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
+    .list__add div:nth-of-type(3) img{
+        bottom: 9px;
+    }
+
     .list__button{
-        grid-column: 2 / 3;
+        grid-column: span 2;
     }
 
     .list__button button{
-        margin: 0;
+        margin: 1rem 0 0 0;
     }
 
     .task{
