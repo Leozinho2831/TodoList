@@ -42,6 +42,7 @@ function initCreateTask(){
     const inputText = document.querySelector('.js-inputText');
     const inputDate = document.querySelector('.js-inputDate');
     const inputHour = document.querySelector('.js-inputHour');
+    const inputCheckbox = document.querySelector('.js-inputCheckbox');
 
     const containerSection = document.querySelector('.js-taskSection');
     const buttonCreateTask = document.querySelector('.js-buttonAdd');
@@ -49,7 +50,6 @@ function initCreateTask(){
     function createTask(){
         if(inputText && inputDate && containerSection){
             if(inputText.value && inputDate.value){
-
                 const [year, month, day] = inputDate.value.split('-');
                 const dateBr = `${day}/${month}/${year}`;
     
@@ -67,9 +67,46 @@ function initCreateTask(){
                 });
     
                 let hour = '';
-                if (inputHour.value) {
-                    hour = `<p class="task-text js-textHour">${inputHour.value}</p>`;
-                }
+                if (inputHour.value){
+                    const [day, month, year] = dateBr.split('/');
+                    const [hourInput, minuteInput] = inputHour.value.split(':');
+
+                    const eventDate = new Date(year, month - 1, day, hourInput, minuteInput);
+                    const date = new Date();
+                    const differenceDate = eventDate.getTime() - date.getTime();
+                    
+                    if(inputCheckbox.checked){
+
+                        if(differenceDate < 0){
+                            hour = '<p class="task-text js-textHour">acabou</p>';
+                        } else {
+                            const totalMinutes = Math.floor(differenceDate / (1000 * 60));
+                            const days = Math.floor(totalMinutes / (60 * 24));
+                            const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+                            const minutes = totalMinutes % 60;
+                                    
+                            let formattedHour = '';
+
+                            if (days > 0){
+                                const formattedDay = String(days).padStart(2, '0');
+                                const formattedHourPart = String(hours).padStart(2, '0');
+                                formattedHour = `${formattedDay}:${formattedHourPart}:${String(minutes).padStart(2, '0')}`;
+                            } else {
+                                const formattedHourPart = String(hours).padStart(2, '0');
+                                const formattedMinute = String(minutes).padStart(2, '0');
+                                formattedHour = `${formattedHourPart}:${formattedMinute}`;
+                            }
+                                    
+                            hour = `<p class="task-text js-textHour js-hourTimer">${formattedHour}</p>`;
+                        }
+
+                    } else if(differenceDate < 0){
+                        hour = '<p class="task-text js-textHour">acabou</p>';
+                    } else {
+                        hour = `<p class="task-text js-textHour">${inputHour.value}</p>`;
+                    }
+
+                } 
     
                 let newTask = '';
                 if(titleExists){
@@ -163,6 +200,7 @@ function initCreateTask(){
                 inputText.value = '';
                 inputDate.value = '';
                 if(inputHour.value) inputHour.value = '';
+                if(inputCheckbox.checked) inputCheckbox.checked = false;
     
                 localStorage.removeItem('tasks');
                 saveTasks();
@@ -186,6 +224,79 @@ function initCreateTask(){
 }
 
 initCreateTask();
+
+function updateHour(){
+    const hourTexts = document.querySelectorAll('.js-hourTimer');
+
+    if(hourTexts.length){
+        hourTexts.forEach((hourText) => {
+            let textParts = hourText.innerHTML.split(':');
+            let day = 0, hour = 0, minutes = 0;
+
+            if (textParts.length === 3) {
+
+                day = Number(textParts[0]);
+                hour = Number(textParts[1]);
+                minutes = Number(textParts[2]);
+
+            } else if (textParts.length === 2){
+
+                hour = Number(textParts[0]);
+                minutes = Number(textParts[1]);
+
+            } else if (textParts.length === 1){
+
+                minutes = Number(textParts[0]);
+            
+            }
+
+            minutes -= 1;
+
+            if (minutes < 0){
+                minutes = 59;
+                hour -= 1;
+
+                if (hour < 0){
+                    hour = 23;
+                    day -= 1;
+
+                    if (day < 0){
+                        day = 0;
+                    }
+                }
+
+            } else if(minutes === 0 && hour === 0 && (day === 0 || day === undefined)){
+                minutes = 0, hour = 0, day = 0;
+            }
+
+            if(day == 0 && hour == 0 && minutes == 0){
+
+                hourText.innerHTML = 'acabou';
+                hourText.classList.remove('js-hourTimer');
+
+            } else {
+
+                const newTime = [
+                    day !== undefined ? day.toString().padStart(2, '0') : '',
+                    hour.toString().padStart(2, '0'),
+                    minutes.toString().padStart(2, '0')
+                ];
+
+                if(newTime[0] !== '00' && newTime[0] !== undefined){
+                    hourText.innerHTML = `${newTime[0]}:${newTime[1]}:${newTime[2]}`;
+                } else {
+                    hourText.innerHTML = `${newTime[1]}:${newTime[2]}`;
+                }
+            }
+
+        });
+    }
+
+    localStorage.removeItem('tasks');
+    saveTasks();    
+}
+
+setInterval(updateHour, 60000);
 
 function initCompleteTask() {
     const iconComplete = document.querySelectorAll('.js-task svg:first-of-type');
